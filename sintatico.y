@@ -1,16 +1,17 @@
 /* Verificando a sintaxe de programas segundo nossa GLC-exemplo */
 /* considerando notacao polonesa para expressoes */
 %{
-	#include <stdio.h>
-	#define YYDEBUG 1
-	int yylex (void);
-	void yyerror (const char *s);
-	extern FILE *yyin;
-	extern int yydebug;
-	extern int yylineno;
+#include <stdio.h> 
+#define YYDEBUG 1
+extern FILE *yyin;
+int yylex (void);
+void yyerror (const char *s);
+extern int yydebug;
 %}
 %token NUM
 %token ID
+%token PRINT
+%token READ
 %%
 /* Regras definindo a GLC e acoes correspondentes */
 /* neste nosso exemplo quase todas as acoes estao vazias */
@@ -26,29 +27,22 @@ lista_cmds:	cmd			{;}
 		| cmd ';' lista_cmds	{;}
 ;
 cmd:		ID '=' exp		{;}
+		| PRINT '(' exp ')' 		{;}
+		| READ '(' ID ')'			{;}
 ;
 exp:		NUM			{;}
 		| ID			{;}
 		| exp exp '+'		{;}
 ;
 %%
-
-void yyerror (const char *s) {
-  printf("Erro sintático: %s line %d\n", s, yylineno);
-}
-
-int main (int argc, char *argv[]) {
-	int result = 0;
-
-	yydebug = 0;
+int main (int argc, char *argv[]) 
+{
+	/*yydebug = 1*/
 	yyin = fopen(argv[1], "r");
-
-	result = yyparse();
-
-	if (result)
-		printf("Programa com erro sintático!\n");
-	else
-		printf("Programa sintaticamente correto!\n");
-	
-	return result;
+	yyparse ();
 }
+void yyerror (const char *s) /* Called by yyparse on error */
+{
+	printf ("Problema com a analise sintatica!\n");
+}
+
