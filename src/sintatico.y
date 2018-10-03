@@ -35,11 +35,14 @@ int main (int argc, char *argv[])
 	yyin = fopen(argv[1], "r");
 	if(yyin == NULL) {
 		printf("Problema com a passagem do arquivo pela linha de comando.\n");
-		return 0;
 	}
-	if(!(yyparse ())) {
-		printf("Programa sintaticamente correto!\n");
+	else {
+		if(!(yyparse ())) {
+			printf("Programa sintaticamente correto!\n");
+		}
 	}
+	fclose(yyin);
+	return 0;
 }
 void yyerror (const char *s) /* Called by yyparse on error */
 {
