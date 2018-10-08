@@ -1,5 +1,6 @@
+a,b,d:inteiro;
+c:flutuante;
 {
 	a=1;
-	imprimir(a b +);
-	ler(b);
+	imprimir(a a +)
 }

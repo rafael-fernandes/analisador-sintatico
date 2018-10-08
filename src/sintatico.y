@@ -12,10 +12,18 @@ extern int yydebug;
 %token ID
 %token IMPRIMIR
 %token LER
+%token TIPO
 %%
 /* Regras definindo a GLC e acoes correspondentes */
 /* neste nosso exemplo quase todas as acoes estao vazias */
-programa:	'{' lista_cmds '}'	{;}
+programa: decl_var '{' lista_cmds '}'	{;}
+;
+decl_var:
+
+		| lista-var ':' TIPO ';' decl_var		{;}
+;
+lista-var:  ID 					{;}
+		| ID ',' lista-var		{;}
 ;
 lista_cmds:	cmd			{;}
 		| cmd ';' lista_cmds	{;}

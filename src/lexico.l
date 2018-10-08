@@ -5,6 +5,7 @@
 %%
 ("ler")								{return LER;}
 ("imprimir")								{return IMPRIMIR;}
+("flutuante"|"inteiro")				{return TIPO;}
 [0-9]+			{return NUM;}
 [a-zA-Z][a-zA-Z0-9]*	{return ID;}
 [ \t\n]+			{;}
