@@ -13,10 +13,15 @@ extern int yydebug;
 %token IMPRIMIR
 %token LER
 %token TIPO
+%token VAR
 %%
 /* Regras definindo a GLC e acoes correspondentes */
 /* neste nosso exemplo quase todas as acoes estao vazias */
-programa: decl_var '{' lista_cmds '}'	{;}
+programa: delim_decl '{' lista_cmds '}'	{;}
+;
+delim_decl:
+		
+		| VAR decl_var		{;}
 ;
 decl_var:
 
@@ -48,8 +53,8 @@ int main (int argc, char *argv[])
 		if(!(yyparse ())) {
 			printf("Programa sintaticamente correto!\n");
 		}
+		fclose(yyin);
 	}
-	fclose(yyin);
 	return 0;
 }
 void yyerror (const char *s) /* Called by yyparse on error */
