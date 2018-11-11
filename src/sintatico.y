@@ -17,6 +17,7 @@ extern int yydebug;
 %token VAR
 %token SE
 %token SENAO
+%token ENQUANTO
 %token COMP
 
 %%
@@ -51,6 +52,8 @@ cmd:		ID '=' exp		{;}
 		| SE '(' exp ')' '{' lista_cmds '}' SENAO '{' lista_cmds '}' {;}
 		| SE '(' comp ')' '{' lista_cmds '}' {;}
 		| SE '(' comp ')' '{' lista_cmds '}' SENAO '{' lista_cmds '}' {;}
+		| ENQUANTO '(' exp ')' '{' lista_cmds '}' {;}
+		| ENQUANTO '(' comp ')' '{' lista_cmds '}' {;}
 ;
 
 comp:

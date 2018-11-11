@@ -9,6 +9,7 @@
 ("flutuante"|"inteiro")				{return TIPO;}
 ("se")				{return SE;}
 ("senao")				{return SENAO;}
+("enquanto")				{return ENQUANTO;}
 ("var")								{return VAR;}
 ("<"|"<="|">"|">="|"==") {return COMP;}
 [0-9]+			{return NUM;}

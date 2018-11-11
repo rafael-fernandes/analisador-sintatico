@@ -53,7 +53,8 @@ extern int yydebug;
     VAR = 263,
     SE = 264,
     SENAO = 265,
-    COMP = 266
+    ENQUANTO = 266,
+    COMP = 267
   };
 #endif
 

@@ -20,5 +20,13 @@ var
 		a = a + 20
 	} senao {
 		b = 20
+	};
+
+	enquanto (a == 10) {
+		a = a - 1
+	};
+
+	enquanto (a > 10) {
+		a = a - 1
 	}
 }
