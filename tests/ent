@@ -1,7 +1,8 @@
 var
-	a:inteiro;
-	b:flutuante;
+	a,b,c:inteiro;
 {
-	a=1;
-	imprimir(a a +)
+	a = 10;
+	b = 1;
+	c = (a+b)*a/b;
+	imprimir(c)
 }

@@ -1,4 +1,24 @@
-{a=1}
-{a=2;b=1;print (a b +); read (b)}
-{a=2;b=1}
-{c=2 4 +}
+var
+	a,b,c: inteiro;
+
+{
+	a = 10;
+	b = 1;
+	c = (a+b)*a/b;
+	ler(b);
+	imprimir(c);
+
+	se (a < 10) {
+		se (a < 5) {
+			a = a * b
+		}
+	} senao {
+		b = 20
+	};
+
+	se (a == 10) {
+		a = a + 20
+	} senao {
+		b = 20
+	}
+}
